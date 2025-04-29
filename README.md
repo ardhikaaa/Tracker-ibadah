@@ -1,50 +1,80 @@
-# Welcome to your Expo app 👋
+# Tracker-Ibadah
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![Platform](https://img.shields.io/badge/platform-android-blue)
+![Expo](https://img.shields.io/badge/expo-49.0.8-orange)
+![Status](https://img.shields.io/badge/status-active-success)
 
-## Get started
+Tracker-Ibadah adalah aplikasi mobile yang dibuat untuk membantu pengguna dalam mengelola dan mencatat aktivitas ibadah harian. Aplikasi ini mendukung penambahan tugas, checklist, dan filter berdasarkan kategori ibadah.
 
-1. Install dependencies
+---
 
+## ✨ Fitur
+
+- **CRUD Tasks**: Membuat, membaca, mengedit, dan menghapus tugas ibadah
+- **Checklist**: Menandai tugas ibadah yang telah selesai
+- **Filter Kategori**: Menyaring tugas berdasarkan kategori (*Wajib* atau *Sunnah*)
+
+---
+
+## 🚀 Pembuatan Project
+
+1. Membuat project baru menggunakan **Expo**:
+   ```bash
+   npx create-expo-app Tracker-Ibadah
+   ```
+
+2. Menambahkan dependensi yang dibutuhkan:
+   - `twrnc` untuk styling seperti Tailwind di React Native
+   - `@react-native-async-storage/async-storage` untuk penyimpanan data lokal
+   - `@expo/vector-icons` untuk penggunaan ikon
+   - `@react-native-picker/picker` untuk dropdown pilihan kategori
+
+3. Struktur folder utama:
+   ```
+   /assets
+   /app
+   app/index.tsx
+   ```
+
+---
+
+## 🛠️ Cara Menjalankan Aplikasi
+
+1. Clone repository:
+   ```bash
+   git clone https://github.com/username/Tracker-ibadah.git
+   cd Tracker-ibadah
+   ```
+
+2. Install semua dependensi:
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. Jalankan aplikasi:
    ```bash
-    npx expo start
+   npm start
+   ```
+   
+4. Jalankan emulator:
+   ```bash
+   a
    ```
 
-In the output, you'll find options to open the app in a
+5. Build APK untuk Android:
+   ```bash
+   eas build -p android
+   ```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📅 Catatan Tambahan
 
-## Get a fresh project
+- Aplikasi ini hanya dibuat untuk platform **Android**.
+- Disarankan menggunakan **EAS Build** untuk membangun file APK.
+- Jika ingin memodifikasi atau menambahkan fitur lain, struktur project sudah disiapkan agar mudah dikembangkan.
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Terima kasih telah menggunakan Tracker-Ibadah! 🌟
