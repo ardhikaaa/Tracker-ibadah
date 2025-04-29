@@ -41,6 +41,12 @@ const Index = () => {
       return;
     }
 
+    const regex = /^(?:(?:31\/(0?[13578]|1[02]))|(?:30\/(0?[13-9]|1[0-2]))|(?:0?[1-9]|1\d|2[0-8])\/(0?[1-9]|1[0-2]))\/(\d{4})$|^(29\/02\/(\d{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00))$/;
+    if (!regex.test(deadline.trim())) {
+      Alert.alert('Warning', 'Please enter a valid deadline in DD/MM/YYYY format.');
+      return; // Stop proses tambah task
+    }
+
     // Show confirmation alert before adding task
     Alert.alert(
       'Ingin menambahkan jadwal ibadah?',
@@ -116,12 +122,34 @@ const Index = () => {
     );
   };
 
+  const handleDeadlineChange = (text: string) => {
+    // Hapus semua karakter selain angka
+    let numbersOnly = text.replace(/\D/g, '');
+  
+    let formatted = '';
+    if (numbersOnly.length <= 2) {
+      formatted = numbersOnly;
+    } else if (numbersOnly.length <= 4) {
+      formatted = `${numbersOnly.slice(0, 2)}/${numbersOnly.slice(2)}`;
+    } else if (numbersOnly.length <= 8) {
+      formatted = `${numbersOnly.slice(0, 2)}/${numbersOnly.slice(2, 4)}/${numbersOnly.slice(4)}`;
+    } else {
+      // Maksimal 8 digit
+      formatted = `${numbersOnly.slice(0, 2)}/${numbersOnly.slice(2, 4)}/${numbersOnly.slice(4, 8)}`;
+    }
+  
+    setDeadline(formatted);
+  };
+  
+
   const handleEdit = () => {
     const updated = list.map(item =>
       item.id === editId
         ? { ...item, title: title.trim(), deadline: deadline.trim(), category: category }
         : item
     );
+
+    
 
     // Show confirmation alert before editing the task
     Alert.alert(
@@ -186,11 +214,12 @@ const Index = () => {
 
             <TextInput
               style={tw`bg-[#2D3B39] text-white p-4 rounded-xl mb-3`}
-              placeholder="Tanggal Ibadah"
+              placeholder="Tanggal Ibadah (DD/MM/YYYY)"
               placeholderTextColor={'#9CA3AF'}
               value={deadline}
-              onChangeText={setDeadline}
+              onChangeText={handleDeadlineChange}
             />
+
 
             <View style={tw`bg-[#2D3B39] rounded-xl mb-4 overflow-hidden`}>
               <Picker
